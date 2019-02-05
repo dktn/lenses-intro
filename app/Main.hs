@@ -6,6 +6,8 @@ import qualified Example3
 import qualified Example4
 import qualified Example5
 import qualified Example6
+import qualified Example7
+import qualified Example8
 
 main :: IO ()
 main = do
@@ -15,3 +17,5 @@ main = do
   Example4.run
   Example5.run
   Example6.run
+  Example7.run
+  Example8.run

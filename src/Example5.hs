@@ -26,6 +26,9 @@ department f (Person fn ln d) = (\d' -> Person fn ln d') <$> f d
 name :: Lens' Department String
 name f (Department nr nm) = (\nm' -> Department nr nm') <$> f nm
 
+departmentName :: Lens' Person String
+departmentName = department . name
+
 -- type Lens' s a = Lens s s a a
 -- type Lens s t a b = forall f. Functor f => (a -> f b) -> s -> f t
 -- firstName :: Functor f => (a -> f a) -> (Person a) -> f (Person a) -- consider to use in libs
@@ -37,7 +40,8 @@ test1 = do
   print $ person1 ^. firstName
   print $ person1 ^. department . name
   print $ person1 & department . name .~ "Bar"
-  pure ()
+  print $ person1 ^. departmentName
+  print $ person1 & departmentName .~ "Bar"
 
 data Weather =
   Weather

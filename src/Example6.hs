@@ -7,26 +7,11 @@ import Data.Map.Strict as Map
 import Data.Monoid (Sum (..))
 import Data.Char (chr, toTitle)
 
-data Point a =
-  Point
-    { _x :: a
-    , _y :: a
-    } deriving (Show)
-
-makeLenses ''Point
-
-data Line a =
-  Line
-    { _lineStart :: Point a
-    , _lineEnd   :: Point a
-    } deriving (Show)
-
-makeLenses ''Line
-
 test1 :: IO ()
 test1 = do
-  let line1 = Line (Point 1 2) (Point 3 4)
-  putStrLn $ "line1: " <> show line1
+  print $ traverse %~ (*2) $ [1, 2, 3]
+  print $ traverse %~ even $ [1, 2, 3]
+  print $ traverse . traverse %~ length $ [["hello", "world"],["!!!"]]
 
 test2 :: IO ()
 test2 = do
