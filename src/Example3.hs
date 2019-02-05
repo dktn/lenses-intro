@@ -114,4 +114,4 @@ test6 = do
                 & lineEnd       %~ (\(Point x y) -> Point y x)
 
 run :: IO ()
-run = sequence_ [ test1, test2, test3, test4, test5 ]
+run = sequence_ [ test1, test2, test3, test4, test5, test6 ]

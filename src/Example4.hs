@@ -63,6 +63,14 @@ test1 = do
 
 test2 :: IO ()
 test2 = do
+  print $ (10 ,20) & _1 .~ 30 & _2 .~ 40
+  print $ (10, 20) &~ do _1 .= 30; _2 .= 40
+  print $ (10, 20) &~ do
+    _1 .= 30
+    _2 .= 40
+
+test3 :: IO ()
+test3 = do
   let point1 = makePoint (1, 2)
   putStrLn $ "point1: " <> show point1
   print $ point1 ^. x
@@ -78,18 +86,19 @@ test2 = do
   print $ point1 & posX +~ 10
   print $ point1 & posY +~ 10
 
-test3 :: IO ()
-test3 = do
+test4 :: IO ()
+test4 = do
   let point1 = makePoint (Sum 7, Sum 8)
   putStrLn $ "point1: " <> show point1
   print $ point1 ^. pointCoordinates
 
-test4 :: IO ()
-test4 = do
+test5 :: IO ()
+test5 = do
   let point1 = makePoint (7, 8)
   putStrLn $ "point1: " <> show point1
   print $ point1 ^. to swapPoint
   print $ point1 & swapPoint
+  print $ swapPoint point1
 
 run :: IO ()
-run = sequence_ [ test1, test2, test3, test4 ]
+run = sequence_ [ test1, test2, test3, test4, test5 ]
