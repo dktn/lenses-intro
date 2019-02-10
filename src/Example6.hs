@@ -31,11 +31,13 @@ test3 = do
   print $ list1 & mapped %~ succ
   print $ mapped %~ succ $ list1
   print $ over mapped succ list1
+  print $ list1 <&> succ
   -- list of tuples
   let list2 = [(1, 2), (3, 4)]
   print $ list2 & mapped . _1 %~ succ
   print $ mapped . _1 %~ succ $ list2
   print $ over (mapped . _1) succ list2
+  print $ list2 <&> _1 %~ succ
   -- others
   print $ _1 . mapped . _2 . mapped %~ succ $ ([(1, "Quick"), (2, "brown")], "fox")
   print $ both <>~ "!!!" $ ("hello", "world")

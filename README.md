@@ -6,13 +6,13 @@
 
 To compile and execute run:
 ```
-$ ghc build
-$ ghc exec lenses-intro-exe
+$ stack build
+$ stack exec lenses-intro-exe
 ```
 
 or in one-liner:
 ```
-$ ghc build && ghc exec lenses-intro-exe
+$ stack build && stack exec lenses-intro-exe
 ```
 
 ### REPL

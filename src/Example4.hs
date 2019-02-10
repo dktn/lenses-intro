@@ -49,7 +49,7 @@ modLine1 = do
     pointCoordinates %= negate
 
 modLine2 :: Num a => State (Line a) ()
-modLine2 = do
+modLine2 =
   zoom lineEnd $ do
     newX <- x <*= 5
     y .= newX

@@ -42,8 +42,8 @@ test1 = do
   print $ line1 ^. lineEnd
   putStrLn "simple set"
   print $ set lineEnd (makePoint (0, 1)) line1
-  print $ lineEnd .~ (makePoint (0, 1)) $ line1
-  print $ line1 & lineEnd .~ (makePoint (0, 1))
+  print $ lineEnd .~ makePoint (0, 1) $ line1
+  print $ line1 & lineEnd .~ makePoint (0, 1)
   putStrLn "lenses composition"
   print $ view (lineEnd . y) line1
   print $ line1 ^. lineEnd . y
