@@ -31,13 +31,13 @@ makeLine start end = Line (makePoint start) (makePoint end)
 swapPoint :: Point a -> Point a
 swapPoint (Point x y) = Point y x
 
-posX :: (Num a, Functor f) => (a -> f a) -> (Point a) -> f (Point a)
+posX :: (Num a, Functor f) => (a -> f a) -> Point a -> f (Point a)
 posX f (Point x y) = fmap (\x' -> Point x' y) (f x)
 
-posY :: (Num a, Functor f) => (a -> f a) -> (Point a) -> f (Point a)
+posY :: (Num a, Functor f) => (a -> f a) -> Point a -> f (Point a)
 posY f (Point x y) = fmap (\y' -> Point x y') (f y)
 
-pointCoordinates :: (Num a, Applicative f) => (a -> f a) -> (Point a) -> f (Point a)
+pointCoordinates :: (Num a, Applicative f) => (a -> f a) -> Point a -> f (Point a)
 pointCoordinates f (Point x y) = Point <$> f x <*> f y
 
 modLine1 :: Num a => State (Line a) ()
